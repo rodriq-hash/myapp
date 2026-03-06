@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Firstcomponent from './components/Firstcomponent';
 import Taskcomponent from './components/Taskcomponent';
@@ -6,26 +7,40 @@ import Recapday1 from './components/Recapday1';
 import Productscomponents from './components/Productcomponent';
 import Secondcomponent from './components/Secondcomponent';
 import Thirdcomponent from './components/Thirdcomponent';
+import Fouthcomponent from './components/Fourthcomponent';
+import Fifthcomponent from './components/Fifthcomponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Introduction to  react js</h1>
-      </header>
-        <h2>About me</h2>
-        <p>my names are Raphael Varane.I stay in Juja and i study at Modcom institute of technology</p>
-        <h3>my favorite Artists</h3>
-        <p>My favorite artists are Bruno Mars,Playboy carti,vybz kartel, spice,</p>
-        <h4>My family</h4>
-        <p>we are a nuclear family a total of five .I have 2 siblings and im the last born if the family.We are 2 boys and one girl.</p>
-        <Firstcomponent/>
-        <Taskcomponent/>
-        <Recapday1/>
-        <Productscomponents/>
-        <Secondcomponent/>
-        <Thirdcomponent/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <h1>Introduction to  react js</h1>
+        </header>
+        {/* nav links goes here  */}
+        <nav>
+          <Link to="/first">First component</Link><br />
+          <Link to="/second">Second component</Link><br />
+          <Link to="/third">Third component</Link><br />
+          <Link to="/recap">Recap component</Link><br />
+          <Link to="/task">Task component</Link><br />
+          <Link to="/product">Products component</Link><br />
+          <Link to="/fourth">Fouth component</Link><br />
+          <Link to="/fifth">Fifth component</Link>
+        </nav>
+        
+        <Routes>
+          <Route path="/first" element={<Firstcomponent/>}/>
+          <Route path="/second" element={<Secondcomponent/>}/>
+          <Route path="/third" element={<Thirdcomponent/>}/>
+          <Route path="/recap" element={<Recapday1/>}/>
+          <Route path="/task" element={<Taskcomponent/>}/>
+          <Route path="/product" element={<Productscomponents/>}/>
+          <Route path="/fourth" element={<Fouthcomponent/>}/>
+          <Route path='/fifth' element ={<Fifthcomponent/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
